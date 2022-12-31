@@ -28,6 +28,8 @@
         <li class="list-group-item">And a fifth one</li>
     </ul>
 
+    <button id="login">로그인</button>
+
 
 
     <div class="black-bg">
@@ -35,18 +37,55 @@
           <h4>로그인하세요</h4>
           <form action="success.html">
             <div class="my-3">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" id="email">
              </div>
              <div class="my-3">
-               <input type="password" class="form-control">
+               <input type="password" class="form-control" id="pw">
              </div>
-             <button type="submit" class="btn btn-primary">전송</button>
+             <button type="submit" class="btn btn-primary" id="send">전송</button>
              <button type="button" class="btn btn-danger" id="close">닫기</button>
           </form> 
         </div>
-      </div> 
+    </div> 
 
-    <button id="login">로그인</button>
+    <script>
+        //숙제
+        // 전송버튼 눌렀을대
+        // input에 입력한값이 공백이면 알림창띄워주세요
+        
+
+        // $('form').on('submit', function(e){
+        //     let value1 = $('#email').val();
+        //     if(value1 == ''){
+        //         e.preventDefault();
+        //         alert('아이디 입력해주세요');                
+        //     }
+        // });
+        
+        $('form').on('submit', function(e){
+            if ($('#email').val() == '') {
+                e.preventDefault();
+                alert('아이디 입력하쇼');
+            } 
+            if (document.getElementById('pw').value == ''){
+                e.preventDefault();
+                alert('비번 입력하쇼')
+            }
+            if (document.getElementById('pw').value.length < 6){
+                e.preventDefault();
+                alert('왜케 비번이 짧음?')
+            }
+        });
+
+        
+
+
+        
+    </script>
+    
+      
+
+
 
 
 
@@ -55,15 +94,15 @@
         $('.navbar-toggler').on('click', 
         function(){
             $('.list-group').toggleClass('show');
-        })
+        });
 
         $('#login').on('click', function(){
             $('.black-bg').addClass('modal');
-        })
+        });
 
         $('#close').on('click', function(){
             $('.black-bg').css('display', 'none');
-        })
+        });
 
 
 
