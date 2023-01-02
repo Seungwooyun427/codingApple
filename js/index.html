@@ -17,6 +17,7 @@
             <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
             </button>
+            <button class="badge bg-dark">Dark 🔄</button>
         </div>
     </nav> 
 
@@ -49,18 +50,49 @@
     </div> 
 
     <script>
-        //숙제
-        // 전송버튼 눌렀을대
-        // input에 입력한값이 공백이면 알림창띄워주세요
-        
 
-        // $('form').on('submit', function(e){
-        //     let value1 = $('#email').val();
-        //     if(value1 == ''){
-        //         e.preventDefault();
-        //         alert('아이디 입력해주세요');                
-        //     }
-        // });
+        var count = 0;
+        
+        $('.badge').on('click',function(){
+            
+            count++;
+            if(count % 2 == 1){
+                $('.badge').html('Light 🔄');
+            }else{
+                $('.badge').html('Dark 🔄');
+            }
+        });
+
+
+        function threeSixNine(a){
+            if(a % 3 == 0 && a % 9 == 0){
+                console.log('박수박수');
+            }
+            else if(a % 3 == 0){
+                console.log('박수')
+            }
+            else{
+                console.log('통과');
+            }
+        }
+
+
+        function exam(base, law){
+            if(base >= 40 && law >= 40 && base+law >= 120){
+                console.log('pass');
+            }else if(base <= 40 || law <= 40 || base+law <= 120){
+                console.log('fail');
+            }
+            // if(isNaN(base) || isNaN(law)){
+            //     alert('don\'t joke');
+            // }
+        }
+
+
+
+
+
+        
         
         $('form').on('submit', function(e){
             if ($('#email').val() == '') {
@@ -71,25 +103,18 @@
                 e.preventDefault();
                 alert('비번 입력하쇼')
             }
-            if (document.getElementById('pw').value.length < 6){
+            var length = document.getElementById('pw').value.length;
+            if (length < 6){
                 e.preventDefault();
                 alert('왜케 비번이 짧음?')
             }
         });
 
-        
+        document.getElementById('email').addEventListener('change',function(){
+
+        });
 
 
-        
-    </script>
-    
-      
-
-
-
-
-
-    <script>
 
         $('.navbar-toggler').on('click', 
         function(){
