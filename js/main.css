@@ -1,3 +1,32 @@
+.slide-container {
+    width: 300vw;
+    transition: all 1s;
+    
+}
+.slide-box {
+    width: 100vw;
+    float: left;
+    height: 25%;
+}
+.slide-box img {
+    width: 50%;
+    
+} 
+
+.slide-container {
+    width: 300vw;
+    transition: all 1s;
+    transform: translateX(-100vw);
+} 
+
+
+
+
+.alert{
+    display: block;
+}
+
+
 .list-group{
     display: none;
 }

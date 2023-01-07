@@ -49,7 +49,80 @@
         </div>
     </div> 
 
+
+    <div style="overflow: hidden">
+        <div class="slide-container">
+          <div class="slide-box">
+            <img src="car1.png">
+          </div>
+          <div class="slide-box">
+            <img src="car2.png">
+          </div>
+          <div class="slide-box">
+            <img src="car3.png">
+          </div>
+        </div>
+     </div> 
+
+     <button class="slide-1">1</button>
+     <button class="slide-2">2</button>
+     <button class="slide-3">3</button>
+     <button class="next">다음</button>
+     <button class="previous">이전</button>
+
+
+
+     
+
+
+
+
+
+
+
     <script>
+        var current = 1;
+        $('.next').on('click',function(){
+            if(current == 1){
+                $('.slide-container').css('transform', 'translateX(-100vw)');
+                current++;
+            }else if(current == 2){
+                $('.slide-container').css('transform', 'translateX(-200vw)');
+                current++;
+            }
+                        
+        });
+
+        
+        $('.previous').on('click',function(){
+            if(current == 2){
+                $('.slide-container').css('transform', 'translateX(0vw)');
+                current--;
+            }else if(current == 3){
+                $('.slide-container').css('transform', 'translateX(-100vw)');
+                current--;
+            }
+            
+            
+        });
+
+        $('.slide-1').on('click', function() {
+            $('.slide-container').css('transform', 'translateX(0vw)');
+            current = 1;
+        });
+
+        $('.slide-2').on('click', function() {
+            $('.slide-container').css('transform', 'translateX(-100vw)');
+            current = 2;
+        });
+        $('.slide-3').on('click', function() {
+            $('.slide-container').css('transform', 'translateX(-200vw)');
+            current = 3;
+        });
+
+
+
+
 
         var count = 0;
         
@@ -95,19 +168,33 @@
         
         
         $('form').on('submit', function(e){
+            var value = $('#email').val();
             if ($('#email').val() == '') {
                 e.preventDefault();
                 alert('아이디 입력하쇼');
             } 
+            if(!/\S+@\S+\.\S+/.test(value)){
+                alert('이메일 아님');
+                e.preventDefault();
+                
+            }
+
             if (document.getElementById('pw').value == ''){
                 e.preventDefault();
                 alert('비번 입력하쇼')
             }
+            if(!/[A-Z]/.test(value)){
+                e.preventDefault();
+                alert('비번에 대문자 입력하쇼');
+            }
+
             var length = document.getElementById('pw').value.length;
             if (length < 6){
                 e.preventDefault();
                 alert('왜케 비번이 짧음?')
             }
+
+
         });
 
         document.getElementById('email').addEventListener('change',function(){
