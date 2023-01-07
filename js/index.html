@@ -13,13 +13,29 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <span class="navbar-brand">Navbar</span>
+            <span class="navbar-brand">JS Shop</span>
             <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
             </button>
             <button class="badge bg-dark">Dark 🔄</button>
         </div>
     </nav> 
+
+    <script>
+        window.addEventListener('scroll', function(){
+            console.log(window.scrollY);
+            if(window.scrollY >= 100){
+                $('.navbar-brand').css('font-size', '20px');
+            }else if(window.scrollY < 100){
+                $('.navbar-brand').css('font-size', '30px');
+            }
+        });
+
+    </script>
+
+
+
+
 
     <ul class="list-group">
         <li class="list-group-item">An item</li>
@@ -79,7 +95,7 @@
 
 
 
-
+     <div style="height: 1500px;"></div>
     <script>
         var current = 1;
         $('.next').on('click',function(){
