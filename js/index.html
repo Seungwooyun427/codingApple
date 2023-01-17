@@ -21,9 +21,11 @@
         </div>
     </nav> 
 
+    <div id = 'progress-bar'>dddddddd</div>
+
     <script>
         window.addEventListener('scroll', function(){
-            console.log(window.scrollY);
+            
             if(window.scrollY >= 100){
                 $('.navbar-brand').css('font-size', '20px');
             }else if(window.scrollY < 100){
@@ -65,6 +67,16 @@
         </div>
     </div> 
 
+    <script>
+        $('.black-bg').on('click', function(e){
+            console.log(e.target);
+            console.log(document.querySelector('.black-bg'));
+            if(e.target == document.querySelector('.black-bg')){
+                document.querySelector('.black-bg').classList.remove('modal');
+            }
+        })
+    </script>
+
 
     <div style="overflow: hidden">
         <div class="slide-container">
@@ -87,7 +99,22 @@
      <button class="previous">이전</button>
 
 
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div>
 
+    <script>
+        $('.lorem').on('scroll', function(){
+            var 스크롤양 = document.querySelector('.lorem').scrollTop;
+            var 실제높이 = document.querySelector('.lorem').scrollHeight;
+            var 눈에보이는높이 = document.querySelector('.lorem').clientHeight;
+            if((스크롤양 + 눈에보이는높이) >= 실제높이){
+                alert('약관끝');
+            }
+        })
+
+
+    </script>
      
 
 
