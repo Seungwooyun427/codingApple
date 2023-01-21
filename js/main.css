@@ -69,3 +69,7 @@
 .modal{
     display: block;
 }
+
+.form-hide{
+    display: none;
+}
