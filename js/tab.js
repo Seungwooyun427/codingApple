@@ -12,18 +12,27 @@ var car2 = { name : '소나타', price : [50000, 3000, 4000] }
 document.querySelector('#name').innerHTML = car2.name;
 document.querySelector('#price').innerHTML = car2.price[2];
 
+    var pants = [28,30,32]; //서버에서 가져오는 대신, 서버에서 가져와도 이렇게 옴
+    var shirts = [95, 100, 105];
 
 $('.form-select').eq(0).on('input', function(){
 
     var value = $('.form-select').eq(0).val();
     if(value == '셔츠'){
         $('.form-select').eq(1).removeClass('form-hide');
-        var shirts = '<option>95</option> <option>100</option>'
-        $('.form-select').eq(1).html(shirts);
+        $('.form-select').eq(1).html('');
+        shirts.forEach(function(a){
+            console.log(a)
+            $('.form-select').eq(1).append(`<option>${a}<option>`)
+        });
     }else if(value == '바지'){
         $('.form-select').eq(1).removeClass('form-hide');
-        var pants = '<option>28</option> <option>30</option>'
-        $('.form-select').eq(1).html(pants);
+        $('.form-select').eq(1).html('');
+
+        pants.forEach(function(a){
+            console.log(a)
+            $('.form-select').eq(1).append(`<option>${a}<option>`)
+        });
     }
     else{
         $('.form-select').eq(1).addClass('form-hide');
