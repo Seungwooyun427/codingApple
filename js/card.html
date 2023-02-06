@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="main_card.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="card-background">
+        
+        <div class="card-box">
+            <img src="card1.png">
+        </div>
+        <div class="card-box">
+            <img src="card2.png">
+        </div>
+        <div class="card-box">
+            <img src="card3.png">
+        </div>
+
+    </div>
+
+    <script>
+
+        $(window).scroll(function(){ // when I scroll this function works
+            var height = $(window).scrollTop(); // height of scroll
+            console.log(height);
+            var y = (-1/530) * height + 665/530; //135 opacity: 1; 665 opacity: 0;
+            $(".card-box").eq(0).css('opacity', y);
+            var x = (-1/5300) * height + 5301/5300;
+            $(".card-box").eq(0).css('transform', `scale(${x})`);
+
+            var z = (-1/560) * height + 1360/560; //800 opacity: 1; 1360 opacity: 0;
+            $(".card-box").eq(1).css('opacity', z);
+            var w = (-1/5600) * height + 6400/5600;
+            $(".card-box").eq(1).css('transform', `scale(${w})`);
+
+        });
+
+       
+
+
+    </script>
+
+</body>
+</html>
